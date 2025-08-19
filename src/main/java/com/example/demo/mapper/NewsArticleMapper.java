@@ -1,7 +1,7 @@
 package com.example.demo.mapper;
 
 import com.example.demo.dto.request.NewsArticleRequest;
-import com.example.demo.dto.response.NewsArticleResponse;
+import com.example.demo.dto.response.NewArticle.NewsArticleResponse;
 import com.example.demo.entity.NewsArticle;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

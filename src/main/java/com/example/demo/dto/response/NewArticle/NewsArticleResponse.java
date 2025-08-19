@@ -1,4 +1,4 @@
-package com.example.demo.dto.response;
+package com.example.demo.dto.response.NewArticle;
 
 import lombok.Builder;
 import lombok.Data;

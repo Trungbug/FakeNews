@@ -3,13 +3,10 @@ package com.example.demo.exception;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-
 import static com.example.demo.util.Constant.*;
 
 
 
-
-@Getter
 public enum ErrorCode {
     ERROR_CODE_NOT_FOUND(NOT_FOUND, NO_CONTENT_MESSAGE, HttpStatus.NOT_FOUND),
     ERROR_LIST_EMPTY(BAD_REQUEST, ERROR_LIST_EMPTY_MESSAGE, HttpStatus.BAD_REQUEST),
@@ -35,5 +32,15 @@ public enum ErrorCode {
         this.message = message;
         this.httpStatus = httpStatus;
     }
+    public int getCode() {
+        return code;
+    }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
 }

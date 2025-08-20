@@ -27,6 +27,8 @@ public class NewsArticle {
     private String url;
     private String source;
     private LocalDateTime publishedDate;
+    @Column(name = "is_delete")
+    private Boolean isDelete;
 
     @ManyToOne
     @JoinColumn(name = "uploaded_by")

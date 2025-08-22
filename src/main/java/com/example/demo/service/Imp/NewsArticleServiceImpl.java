@@ -8,6 +8,9 @@ import com.example.demo.repository.NewsArticleRepository;
 import com.example.demo.service.NewsArticleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +31,10 @@ public class NewsArticleServiceImpl implements NewsArticleService {
 
     @Override
     public Page<NewsArticleResponse> getAllNewsPagination(String keyword, Long countryId, int page, int size, String sortBy, String sortDir) {
-        return null;
+        Pageable pageable= PageRequest.of(page, size, Sort.by(Sort.Direction.fromString(sortDir), sortBy));
+
+        return newsRepository.findNewsArticleByTitleAndAndContent(keyword, countryId, pageable)
+                .map(newsArticleMapper::toResponse);
     }
 
     @Override
